@@ -7,7 +7,7 @@ from django.core.paginator import EmptyPage
 # Create your views here.
 def runInfo(request):
     itemData = T_Act.objects.all().order_by('-id')
-    paginator = Paginator(itemData,5)
+    paginator = Paginator(itemData,8)
     page = request.GET.get('page')
     try:
         itemList = paginator.page(page)

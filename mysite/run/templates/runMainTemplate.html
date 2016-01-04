@@ -10,11 +10,15 @@
 </head>
 
 <body>
+    <div class="page-header">
+        <h1>oui</h1>
+    </div>
     <div class="col-md-8">
         <table class="table table-striped">
             <thead>
                 <tr>
-                    <th>跑步距离(公里)</th>
+                    <th>运动距离(公里)</th>
+                    <th>运动类型</th>
                     <th>运动持续时间</th>
                     <th>开始日期</th>
                     <th>平均速度(公里/小时)</th>
@@ -25,6 +29,7 @@
                 {% for item in itemList %}
                     <tr>
                         <td>{{ item.T_ActDist }}</td>
+                        <td>{{ item.T_ActType }}</td>
                         <td>{{ item.T_ActDuration }}</td>
                         <td>{{ item.T_ActStartDate }}</td>
                         <td>{{ item.T_ActAvgSpd }}</td>
@@ -56,6 +61,14 @@
             </li>
             {% endif %}
          </ul>
+     </div>
+     <div class="col-md-4" >
+          <form method="post" id="actAdd">
+          {% csrf_token %}
+          <label for='dist'>运动距离</label>
+          <input type='text' id='dist'/>
+          <button type='submit' id='submit'>提交</button>
+          </form>
      </div>
 </body>
 </html>
