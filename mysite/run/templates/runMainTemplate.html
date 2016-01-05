@@ -63,11 +63,12 @@
          </ul>
      </div>
      <div class="col-md-4" >
+          <h1>新增运动</h1>
           <form method="post" id="actAdd">
-          {% csrf_token %}
-          <label for='dist'>运动距离</label>
-          <input type='text' id='dist'/>
-          <button type='submit' id='submit'>提交</button>
+               <table>
+                    {{ form.as_table }}
+               </table>    
+               <input type="submit" id="Submit">
           </form>
      </div>
 </body>
