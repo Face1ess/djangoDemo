@@ -4,7 +4,7 @@ from django.core.paginator import Paginator
 from django.core.paginator import PageNotAnInteger
 from django.core.paginator import EmptyPage
 from django.http import HttpResponse,HttpResponseRedirect
-from run.forms import ContactForm,ActForm
+from run.forms import ActForm
 
 # Create your views here.
 def runInfo(request):
@@ -15,6 +15,8 @@ def runInfo(request):
              act = T_Act(T_ActDist=cd['actDist'], T_ActType=cd['actType'], T_ActDuration=cd['actDuration'], T_ActStartDate=cd['actStartDate'], T_ActAvgSpd=cd['actAvgSpd'], T_ActCalBurn=cd['actCalBurn'])
              act.save()
              return HttpResponseRedirect('/run/')
+        else:
+             return render_to_response('runAddError.html',{'form':form})
     else:
         itemData = T_Act.objects.all().order_by('-id')
         paginator = Paginator(itemData,8)

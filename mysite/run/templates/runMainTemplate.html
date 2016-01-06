@@ -35,7 +35,7 @@
                         <td>{{ item.T_ActAvgSpd }}</td>
                         <td>{{ item.T_ActCalBurn }}</td>
                     </tr>
-                {% endfor%}
+                {% endfor %}
             </tbody>
         </table>
          <ul class="pagination">
@@ -64,6 +64,11 @@
      </div>
      <div class="col-md-4" >
           <h1>新增运动</h1>
+          {% if form.errors %}
+            <p style="color: red;">
+                Please correct the error{{ form.errors|pluralize }} below.
+            </p>
+          {% endif %}
           <form method="post" id="actAdd">
                <table>
                     {{ form.as_table }}
