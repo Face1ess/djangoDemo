@@ -20,8 +20,4 @@ from run import views
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^run/', views.runInfo),
-    url(r'^search-form/$',views.search_form),
-    url(r'^search/$',views.search),
-    url(r'^contact-form/$',views.contact_form),
-    url(r'^act-form/$',views.act_form),
 ]
